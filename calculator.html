@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            width: 500px;
+            background-color: gray;
+            margin: 50px auto;
+            padding: 10px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            box-shadow: 10px 10px 10px rgb(142, 142, 92);
+        }
+        input{
+            width: 470px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.653);
+            color: black;
+            font-size: 80px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px 20px 0px 0px;
+            text-align: right;
+            box-shadow: 0px 0px 50px white;
+        }
+        input:focus{
+            outline: none;
+        }
+        .divcls button{
+            width: 80px;
+            height: 95px;
+            margin: 10px 6px;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 2s;
+            border-radius: 10px;
+        }
+        .divcls button:active{
+            background-color: rgba(0, 0, 0, 0.365);
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" id="input" readonly>
+        <div class="divcls">
+            <button onclick="assignValues()">7</button>
+            <button onclick="assignValues()">8</button>
+            <button onclick="assignValues()">9</button>
+            <button onclick="symbolValues()">+</button>
+            <button onclick="symbolValues()">-</button>
+        </div>
+        <div class="divcls">
+            <button onclick="assignValues()">4</button>
+            <button onclick="assignValues()">5</button>
+            <button onclick="assignValues()">6</button>
+            <button onclick="symbolValues()">/</button>
+            <button onclick="symbolValues()">*</button>
+        </div>
+        <div class="divcls">
+            <button onclick="assignValues()">1</button>
+            <button onclick="assignValues()">2</button>
+            <button onclick="assignValues()">3</button>
+            <button onclick="symbolValues()">%</button>
+            <button onclick="clearValues()">cls</button>
+        </div>
+        <div class="divcls">
+            <button onclick="assignValues()">0</button>
+            <button onclick="assignValues()">00</button>
+            <button onclick="assignValues()">.</button>
+            <button onclick="deleteValues()">del</button>
+            <button id="eql" onclick="finalValue()">=</button>
+        </div>
+    </section>
+
+    <script>
+        let input = document.getElementById("input");
+        function assignValues()
+        {
+            input.value += event.target.innerText;
+        }
+
+        function symbolValues()
+        {
+            input.value += event.target.innerText;
+        }
+
+        function finalValue()
+        {
+            input.value = eval(input.value);
+        }
+
+        function clearValues()
+        {
+            input.value = "";
+        }
+
+        function deleteValues()
+        {
+            input.value = (input.value).substring(0, (input.value).length-1);;
+        }
+
+    </script>
+</body>
+</html>
